@@ -106,10 +106,11 @@ class Quiz extends Component {
 }
 
 Quiz.propTypes = {
-  navigation: PropTypes.shapeOf({
-    state: PropTypes.shapeOf({
+  navigation: PropTypes.shape({
+    state: PropTypes.shape({
       params: PropTypes.object,
     }).isRequired,
+    goBack: PropTypes.func.isRequired,
   }).isRequired,
 };
 

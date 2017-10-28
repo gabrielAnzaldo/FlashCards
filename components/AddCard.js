@@ -67,8 +67,8 @@ class AddCard extends Component {
 
 AddCard.propTypes = {
   deckId: PropTypes.string.isRequired,
-  navigation: PropTypes.shapeOf({
-    state: PropTypes.shapeOf({
+  navigation: PropTypes.shape({
+    state: PropTypes.shape({
       params: PropTypes.object,
     }).isRequired,
   }).isRequired,

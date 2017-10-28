@@ -42,7 +42,14 @@ class Deck extends Component {
 
           <TouchableOpacity
             style={styles.btnOne}
-            onPress={() => this.props.navigation.navigate('AddCardView', { deck_id: deckId, updateDeckView: this.updateDeckView })}
+            onPress={() => this.props.navigation.navigate(
+              'AddCard',
+              {
+                deckId,
+                updateDeckView: this.updateDeckView,
+              },
+            )
+            }
           >
             <Text>Add Card</Text>
           </TouchableOpacity>
@@ -59,10 +66,11 @@ class Deck extends Component {
 Deck.propTypes = {
   deckId: PropTypes.string.isRequired,
   decks: PropTypes.arrayOf({}).isRequired,
-  navigation: PropTypes.shapeOf({
-    state: PropTypes.shapeOf({
+  navigation: PropTypes.shape({
+    state: PropTypes.shape({
       params: PropTypes.object,
     }).isRequired,
+    navigate: PropTypes.func.isRequired,
   }).isRequired,
 };
 

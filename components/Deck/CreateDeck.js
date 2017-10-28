@@ -56,10 +56,11 @@ class CreateDeck extends Component {
 }
 
 CreateDeck.propTypes = {
-  navigation: PropTypes.shapeOf({
-    state: PropTypes.shapeOf({
+  navigation: PropTypes.shape({
+    state: PropTypes.shape({
       params: PropTypes.object,
     }).isRequired,
+    navigate: PropTypes.func.isRequired,
   }).isRequired,
   operateDeck: PropTypes.func.isRequired,
 };

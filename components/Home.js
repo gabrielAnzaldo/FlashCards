@@ -32,11 +32,19 @@ class Home extends Component {
   makeListItem = obj => (
     <TouchableHighlight
       style={styles.deckItemBtn}
-      onPress={() => this.props.navigation.navigate('Deck', { deckId: obj.item.id, updateHomeView: this.updateHomeView })}
+      onPress={() => this.props.navigation.navigate(
+        'Deck',
+        {
+          deckId: obj.item.id,
+          updateHome: this.updateHomeView,
+        },
+      )}
     >
       <View style={styles.deckItemView}>
         <Text style={styles.headText}>{obj.item.title}</Text>
-        <Text style={{ justifyContent: 'center' }}>{`${obj.item.questions.length} Card(s)`}</Text>
+        <Text style={{ justifyContent: 'center' }}>
+          {`${obj.item.questions.length} Card(s)`}
+        </Text>
       </View>
     </TouchableHighlight>
   );
@@ -69,7 +77,7 @@ class Home extends Component {
             <Text style={{ textAlign: 'center' }}>No Decks</Text>
             <TouchableOpacity
               style={styles.btnOne}
-              onPress={() => this.props.navigation.navigate('CreateDeckView', { updateHomeView: this.updateHomeView })}
+              onPress={() => this.props.navigation.navigate('CreateDeckView', { updateHome: this.updateHomeView })}
             >
               <Text>Create Deck</Text>
             </TouchableOpacity>
@@ -89,9 +97,9 @@ class Home extends Component {
           <TouchableOpacity
             style={styles.btnOne}
             onPress={() => this.props.navigation.navigate(
-              'CreateDeckView',
+              'CreateDeck',
               {
-                updateHomeView: this.updateHomeView,
+                updateHome: this.updateHomeView,
               },
             )}
           >
@@ -112,10 +120,10 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  decks: PropTypes.arrayOf({}).isRequired,
-  navigation: PropTypes.shape(PropTypes.shape({
-    navigate: PropTypes.objectOf().isRequired,
-  })).isRequired,
+  decks: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  navigation: PropTypes.shape({
+    navigate: PropTypes.func.isRequired,
+  }).isRequired,
 };
 
 const mapStateToProps = decks => ({ decks });
