@@ -4,7 +4,7 @@ import { Text, TextInput, View, TouchableOpacity, Switch } from 'react-native';
 import { connect } from 'react-redux';
 import styles from '../utils/styles';
 import { operateCard } from '../actions';
-import { newCard } from '../utils/NewCard';
+import { newCard } from '../utils/utils';
 
 class AddCard extends Component {
   state = {

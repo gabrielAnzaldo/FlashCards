@@ -4,7 +4,7 @@ import { Text, TextInput, View, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import styles from '../../utils/styles';
 import { operateDeck } from '../../actions';
-import { newDeck } from '../../utils/NewCard';
+import { newDeck } from '../../utils/utils';
 
 class CreateDeck extends Component {
   state = {
