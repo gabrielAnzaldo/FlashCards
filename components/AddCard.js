@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text, TextInput, View, TouchableOpacity, Switch } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity, Switch, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import styles from '../utils/styles';
 import { operateCard } from '../actions';
@@ -14,8 +14,8 @@ class AddCard extends Component {
   };
 
   checkInput() {
-    if (this.state.question < 3) {
-      // alert('Empty values are not allowed');
+    if (this.state.question.length === 0) {
+      Alert.alert('Empy value is not allowed.');
     } else {
       this.addCard();
     }

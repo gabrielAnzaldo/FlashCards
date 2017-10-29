@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text, TextInput, View, TouchableOpacity } from 'react-native';
+import { Text, TextInput, View, TouchableOpacity, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import styles from '../../utils/styles';
 import { operateDeck } from '../../actions';
@@ -13,10 +13,11 @@ class CreateDeck extends Component {
   }
 
   checkInput() {
-    if (this.state.title.length < 3) {
-      // alert('Title Must Be At Least 3 Characters Long');
+    if (this.state.title.length === 0) {
+      Alert.alert('Empy value is not allowed.');
+    } else {
+      this.createDeck();
     }
-    this.createDeck();
   }
 
   createDeck() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Text, View, TouchableOpacity } from 'react-native';
+import { Text, View, TouchableOpacity, Alert } from 'react-native';
 import { connect } from 'react-redux';
 
 import styles from '../../utils/styles';
@@ -22,7 +22,7 @@ class Deck extends Component {
 
   startQuiz = (deck) => {
     if (deck.questions.length === 0) {
-      // alert('There are no cards to be quized on.');
+      Alert.alert('Not enough cards to start a quiz.');
     } else {
       this.props.navigation.navigate('Quiz', { deck });
     }
@@ -50,7 +50,7 @@ class Deck extends Component {
             )
             }
           >
-            <Text>Add Card</Text>
+            <Text>Add Question Card</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.btnLP} onPress={() => { this.startQuiz(deck); }}>
             <Text>Start Quiz</Text>

@@ -82,7 +82,9 @@ class Quiz extends Component {
     return (
       <View style={styles.QuizContainer}>
         <ScrollView>
-          <Text style={{ marginTop: 50, marginBottom: 50, textAlign: 'center' }}>{this.state.deck.title} Quiz</Text>
+          <Text style={{ marginTop: 50, marginBottom: 50, textAlign: 'center' }}>
+            {this.state.deck.title} Quiz
+          </Text>
           <Text style={styles.headText}>Quiz Over!</Text>
           <Text>Your Score: {((this.state.right / this.state.cardsLength) * 100).toFixed(2)}%</Text>
           <TouchableOpacity style={styles.btnLP} onPress={() => this.startOver()}>
