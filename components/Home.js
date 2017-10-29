@@ -15,7 +15,7 @@ import styles from '../utils/styles';
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.updateHomeView = this.updateHomeView.bind(this);
+    this.updateHome = this.updateHome.bind(this);
   }
 
   state = {
@@ -36,7 +36,7 @@ class Home extends Component {
         'Deck',
         {
           deckId: obj.item.id,
-          updateHome: this.updateHomeView,
+          updateHome: this.updateHome,
         },
       )}
     >
@@ -58,7 +58,7 @@ class Home extends Component {
     return decks;
   }
 
-  updateHomeView(callback) {
+  updateHome(callback) {
     this.forceUpdate(() => {
       if (callback) {
         callback();
@@ -68,7 +68,6 @@ class Home extends Component {
 
   render() {
     const decksLength = Object.keys(this.props.decks).length;
-
     if (decksLength <= 0) {
       const { opacity } = this.state;
       return (
@@ -77,7 +76,12 @@ class Home extends Component {
             <Text style={{ textAlign: 'center' }}>No Decks</Text>
             <TouchableOpacity
               style={styles.btnOne}
-              onPress={() => this.props.navigation.navigate('CreateDeckView', { updateHome: this.updateHomeView })}
+              onPress={() => this.props.navigation.navigate(
+                'CreateDeckView',
+                {
+                  updateHome: this.updateHome,
+                },
+              )}
             >
               <Text>Create Deck</Text>
             </TouchableOpacity>
@@ -99,11 +103,11 @@ class Home extends Component {
             onPress={() => this.props.navigation.navigate(
               'CreateDeck',
               {
-                updateHome: this.updateHomeView,
+                updateHome: this.updateHome,
               },
             )}
           >
-            <Text>Create Deck the new one</Text>
+            <Text>Create Deck</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.container_three}>
@@ -120,7 +124,10 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  decks: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  decks: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  })).isRequired,
   navigation: PropTypes.shape({
     navigate: PropTypes.func.isRequired,
   }).isRequired,

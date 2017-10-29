@@ -12,7 +12,7 @@ class Deck extends Component {
   }
 
   updateDeckView(callback) {
-    this.props.navigation.state.params.updateHomeView();
+    this.props.navigation.state.params.updateHome();
     this.forceUpdate(() => {
       if (callback) {
         callback();
@@ -24,7 +24,7 @@ class Deck extends Component {
     if (deck.questions.length === 0) {
       // alert('There are no cards to be quized on.');
     } else {
-      this.props.navigation.navigate('QuizView', { deck });
+      this.props.navigation.navigate('Quiz', { deck });
     }
   }
 

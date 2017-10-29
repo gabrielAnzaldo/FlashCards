@@ -5,7 +5,8 @@ export default function decks(state = beginingState, action) {
     case 'ADD_DECK':
       return Object.assign({}, state, { [action.deck.id]: action.deck });
     case 'ADD_CARD':
-      return Object.assign({}, state[action.deckId].questions.push(action.card));
+      state[action.deckId].questions.push(action.card);
+      return Object.assign({}, state);
     default:
       return state;
   }

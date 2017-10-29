@@ -22,12 +22,12 @@ class CreateDeck extends Component {
   createDeck() {
     const deck = newDeck(this.state.title);
     this.props.operateDeck(deck);
-    this.props.navigation.state.params.updateHomeView(() => {
+    this.props.navigation.state.params.updateHome(() => {
       this.props.navigation.navigate(
         'Deck',
         {
-          deck_id: deck.id,
-          updateHomeView: this.props.navigation.state.params.updateHomeView,
+          deckId: deck.id,
+          updateHome: this.props.navigation.state.params.updateHome,
         },
       );
     });
