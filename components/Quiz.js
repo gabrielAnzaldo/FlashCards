@@ -20,7 +20,7 @@ class Quiz extends Component {
     };
   }
 
-  tryGuess(guess) {
+  answerQuestion(guess) {
     const card = this.state.cards[this.state.at];
     if (guess === card.answer) {
       this.setState(prevState => ({ answerAsText: '', right: prevState.right + 1, at: prevState.at + 1 }));
@@ -54,10 +54,16 @@ class Quiz extends Component {
               <Text>Show Answer</Text>
             </TouchableOpacity>
             <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-              <TouchableOpacity style={styles.btnGreen} onPress={() => this.tryGuess(true)}>
+              <TouchableOpacity
+                style={styles.btnGreen}
+                onPress={() => this.answerQuestion(true)}
+              >
                 <Text>Correct</Text>
               </TouchableOpacity>
-              <TouchableOpacity style={styles.btnLP} onPress={() => this.tryGuess(false)}>
+              <TouchableOpacity
+                style={styles.btnLightBlue}
+                onPress={() => this.answerQuestion(false)}
+              >
                 <Text>Incorrect</Text>
               </TouchableOpacity>
             </View>
@@ -87,7 +93,7 @@ class Quiz extends Component {
           </Text>
           <Text style={styles.headText}>Quiz Over!</Text>
           <Text>Your Score: {((this.state.right / this.state.cardsLength) * 100).toFixed(2)}%</Text>
-          <TouchableOpacity style={styles.btnLP} onPress={() => this.startOver()}>
+          <TouchableOpacity style={styles.btnLightBlue} onPress={() => this.startOver()}>
             <Text>Restart Quiz</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.btnOne} onPress={() => this.props.navigation.goBack()}>

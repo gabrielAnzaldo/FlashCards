@@ -52,7 +52,7 @@ class Deck extends Component {
           >
             <Text>Add Question Card</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.btnLP} onPress={() => { this.startQuiz(deck); }}>
+          <TouchableOpacity style={styles.btnLightBlue} onPress={() => { this.startQuiz(deck); }}>
             <Text>Start Quiz</Text>
           </TouchableOpacity>
         </View>

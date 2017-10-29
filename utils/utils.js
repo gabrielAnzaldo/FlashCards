@@ -11,10 +11,7 @@ export function clearLocalNotifications() {
 export function createNotification() {
   return {
     title: 'Study!',
-    body: "Don't Forget To Study! Every Day Count!",
-    ios: {
-      sound: true,
-    },
+    body: "Don't Forget To Study, Every Single Day Matter!",
     android: {
       sound: true,
       priority: 'high',
@@ -26,27 +23,25 @@ export function createNotification() {
 
 export function setLocalNotification() {
   AsyncStorage.getItem(NOTIFICATION_KEY)
-    .then((data) => {
-      if (data === null) {
-        Permissions.askAsync(Permissions.NOTIFICATIONS)
-          .then(({ status }) => {
-            if (status === 'granted') {
-              Notifications.cancelAllScheduledNotificationsAsync();
-              const tomorrow = new Date();
-              tomorrow.setDate(tomorrow.getDate() + 1);
-              tomorrow.setHours(20);
-              tomorrow.setMinutes(0);
-              Notifications.scheduleLocalNotificationAsync(
-                createNotification(),
-                {
-                  time: tomorrow,
-                  repeat: 'day',
-                },
-              );
-              AsyncStorage.setItem(NOTIFICATION_KEY, 'true');
-            }
-          });
-      }
+    .then(() => {
+      Permissions.askAsync(Permissions.NOTIFICATIONS)
+        .then(({ status }) => {
+          if (status === 'granted') {
+            Notifications.cancelAllScheduledNotificationsAsync();
+            const newNotificationDate = new Date();
+            newNotificationDate.setDate(newNotificationDate.getDate() + 1);
+            newNotificationDate.setHours(20);
+            newNotificationDate.setMinutes(0);
+            Notifications.scheduleLocalNotificationAsync(
+              createNotification(),
+              {
+                time: newNotificationDate,
+                repeat: 'day',
+              },
+            );
+            AsyncStorage.setItem(NOTIFICATION_KEY, 'true');
+          }
+        });
     });
 }
 

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { black, gray, blue } from './colors';
+import { gray, blue } from './colors';
 
 const styles = StyleSheet.create({
   headText: {
@@ -43,19 +43,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#66BB6A',
     borderRadius: 3,
   },
-  btnLP: {
+  btnLightBlue: {
     alignItems: 'center',
     justifyContent: 'center',
     padding: 10,
     margin: 10,
     backgroundColor: '#0288D1',
     borderRadius: 3,
-  },
-  textWhite: {
-    color: '#fff',
-  },
-  textBlack: {
-    color: black,
   },
   container: {
     backgroundColor: '#fff',
