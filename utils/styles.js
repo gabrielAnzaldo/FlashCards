@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { black, red, gray, blue, lightPurp } from './colors';
+import { black, gray, blue } from './colors';
 
 const styles = StyleSheet.create({
   headText: {
@@ -32,7 +32,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 10,
     margin: 10,
-    backgroundColor: red,
+    backgroundColor: '#E53935',
+    borderRadius: 3,
+  },
+  btnGreen: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 10,
+    margin: 10,
+    backgroundColor: '#66BB6A',
     borderRadius: 3,
   },
   btnLP: {
@@ -40,7 +48,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 10,
     margin: 10,
-    backgroundColor: lightPurp,
+    backgroundColor: '#0288D1',
     borderRadius: 3,
   },
   textWhite: {
@@ -50,9 +58,7 @@ const styles = StyleSheet.create({
     color: black,
   },
   container: {
-    flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'center',
   },
   HomeContainerOne: {
     flex: 1,
@@ -73,15 +79,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    padding: 10,
   },
-  container_two: {
+  deckListContainer: {
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'flex-start',
     padding: 10,
   },
-  container_three: {
+  containerThree: {
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'stretch',
@@ -115,7 +120,8 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    borderBottomColor: gray,
+    borderBottomColor: '#9E9E9E',
+    borderBottomWidth: 1,
     padding: 10,
   },
 });

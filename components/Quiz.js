@@ -34,15 +34,17 @@ class Quiz extends Component {
   }
 
   render() {
-    if (this.state.cards[this.state.at] !== undefined) {
+    if (this.state.cards[this.state.at]) {
       return (
         <View style={styles.QuizContainer}>
           <ScrollView>
-            <Text style={{ marginTop: 50, marginBottom: 50, textAlign: 'center' }}>{this.state.deck.title} Quiz</Text>
-
+            <Text style={{ marginTop: 10, marginBottom: 50, textAlign: 'center' }}>
+              {this.state.deck.title} Quiz
+            </Text>
             <Text style={styles.headTextCenter}>{this.state.cards[this.state.at].question}</Text>
-            <Text style={{ margin: 20, textAlign: 'center' }}>{this.state.answerAsText}</Text>
-
+            <Text style={{ margin: 20, textAlign: 'center' }}>
+              {this.state.answerAsText}
+            </Text>
             <TouchableOpacity
               style={styles.btnOne}
               onPress={() => this.setState({
@@ -51,30 +53,24 @@ class Quiz extends Component {
             >
               <Text>Show Answer</Text>
             </TouchableOpacity>
-
             <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-              <TouchableOpacity style={styles.btnBlue} onPress={() => this.tryGuess(true)}>
-                <Text>True</Text>
+              <TouchableOpacity style={styles.btnGreen} onPress={() => this.tryGuess(true)}>
+                <Text>Correct</Text>
               </TouchableOpacity>
-
               <TouchableOpacity style={styles.btnLP} onPress={() => this.tryGuess(false)}>
-                <Text>False</Text>
+                <Text>Incorrect</Text>
               </TouchableOpacity>
             </View>
-
-
             <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-around' }}>
               <Text style={{ margin: 10 }}>Right: {this.state.right}</Text>
-
               <Text style={{ margin: 10 }}>Wrong: {this.state.wrong}</Text>
             </View>
-
-            <Text style={{ marginTop: 30, marginBottom: 30, textAlign: 'center' }}>{`${this.state.at + 1}/${this.state.cardsLength}`} Quesions</Text>
-
-            <TouchableOpacity style={styles.btnLP} onPress={() => this.startOver()}>
+            <Text style={{ marginTop: 30, marginBottom: 30, textAlign: 'center' }}>
+              {`${this.state.at + 1}/${this.state.cardsLength}`} Quesions
+            </Text>
+            <TouchableOpacity style={styles.btnRed} onPress={() => this.startOver()}>
               <Text>Restart Quiz</Text>
             </TouchableOpacity>
-
             <TouchableOpacity style={styles.btnOne} onPress={() => this.props.navigation.goBack()}>
               <Text>Back To Deck</Text>
             </TouchableOpacity>
@@ -87,15 +83,11 @@ class Quiz extends Component {
       <View style={styles.QuizContainer}>
         <ScrollView>
           <Text style={{ marginTop: 50, marginBottom: 50, textAlign: 'center' }}>{this.state.deck.title} Quiz</Text>
-
           <Text style={styles.headText}>Quiz Over!</Text>
-
-          <Text>Your Score: {(this.state.right / this.state.cardsLength) * 100}%</Text>
-
+          <Text>Your Score: {((this.state.right / this.state.cardsLength) * 100).toFixed(2)}%</Text>
           <TouchableOpacity style={styles.btnLP} onPress={() => this.startOver()}>
             <Text>Restart Quiz</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.btnOne} onPress={() => this.props.navigation.goBack()}>
             <Text>Back To Deck</Text>
           </TouchableOpacity>

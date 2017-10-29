@@ -34,12 +34,11 @@ class Deck extends Component {
     const cardsList = deck.questions;
     return (
       <View style={styles.container}>
-        <View style={{ alignItems: 'center', paddingTop: 20 }}>
-          <View style={{ marginBottom: 30 }}>
+        <View style={{ alignItems: 'center' }}>
+          <View style={{ marginTop: 15 }}>
             <Text style={styles.headTextCenter}>{deck.title}</Text>
             <Text style={{ textAlign: 'center' }}>{`${cardsList.length} Card(s)`}</Text>
           </View>
-
           <TouchableOpacity
             style={styles.btnOne}
             onPress={() => this.props.navigation.navigate(
@@ -53,9 +52,8 @@ class Deck extends Component {
           >
             <Text>Add Card</Text>
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.btnLP} onPress={() => { this.startQuiz(deck); }}>
-            <Text>Quiz</Text>
+            <Text>Start Quiz</Text>
           </TouchableOpacity>
         </View>
       </View>

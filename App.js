@@ -15,6 +15,7 @@ import AddCard from './components/AddCard';
 import { white, purple } from './utils/colors';
 import { setLocalNotification } from './utils/utils';
 
+console.disableYellowBox = true;
 const Stack = StackNavigator({
   Home: {
     screen: Home,

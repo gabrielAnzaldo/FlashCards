@@ -57,7 +57,7 @@ class AddCard extends Component {
         </View>
         <Text style={{ marginTop: 30 }}>{this.state.msg}</Text>
         <Text style={{ margin: 15 }} />
-        <TouchableOpacity style={styles.btnBlue} onPress={() => this.checkInput()}>
+        <TouchableOpacity style={styles.btnGreen} onPress={() => this.checkInput()}>
           <Text>Add</Text>
         </TouchableOpacity>
       </View>

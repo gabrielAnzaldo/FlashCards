@@ -36,19 +36,16 @@ class CreateDeck extends Component {
   render() {
     return (
       <View style={styles.NewDeckcontainer}>
-        <Text style={{ marginTop: 50 }}>Create Deck View</Text>
-
+        <Text style={{ marginTop: 50 }}>What is the title of your new deck?</Text>
         <TextInput
           style={styles.textField}
           placeholder="Title"
           value={this.state.title}
           onChangeText={title => this.setState({ title })}
         />
-
         <TouchableOpacity style={styles.btnBlue} onPress={() => this.checkInput()}>
           <Text>Submit</Text>
         </TouchableOpacity>
-
         <Text style={{ marginTop: 30 }}>{this.state.msg}</Text>
       </View>
     );
@@ -65,14 +62,8 @@ CreateDeck.propTypes = {
   operateDeck: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = decks => ({
-  decks,
-});
+const mapStateToProps = decks => ({ decks });
 
-const mapDispatchToProps = dispatch => (
-  {
-    operateDeck: deck => dispatch(operateDeck(deck)),
-  }
-);
+const mapDispatchToProps = dispatch => ({ operateDeck: deck => dispatch(operateDeck(deck)) });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateDeck);

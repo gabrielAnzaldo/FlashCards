@@ -29,21 +29,21 @@ class Home extends Component {
 
   getKey = item => item.id;
 
-  makeListItem = obj => (
+  makeListItem = deciItem => (
     <TouchableHighlight
       style={styles.deckItemBtn}
       onPress={() => this.props.navigation.navigate(
         'Deck',
         {
-          deckId: obj.item.id,
+          deckId: deciItem.item.id,
           updateHome: this.updateHome,
         },
       )}
     >
       <View style={styles.deckItemView}>
-        <Text style={styles.headText}>{obj.item.title}</Text>
+        <Text style={styles.headText}>{deciItem.item.title}</Text>
         <Text style={{ justifyContent: 'center' }}>
-          {`${obj.item.questions.length} Card(s)`}
+          {`${deciItem.item.questions.length} Card(s)`}
         </Text>
       </View>
     </TouchableHighlight>
@@ -93,7 +93,7 @@ class Home extends Component {
     const decksList = this.buildDecksList();
 
     return (
-      <View style={styles.container_two}>
+      <View style={styles.deckListContainer}>
         <View style={{ alignItems: 'center' }}>
           <Text style={{ marginTop: 30, justifyContent: 'center', textAlign: 'center' }}>
             {`${decksList.length} Deck(s)`}
@@ -110,7 +110,7 @@ class Home extends Component {
             <Text>Create Deck</Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.container_three}>
+        <View style={styles.containerThree}>
           <FlatList
             style={styles.list}
             data={decksList}
