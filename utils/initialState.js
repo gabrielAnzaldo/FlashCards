@@ -1,6 +1,6 @@
 import uuid from 'uuid/v4';
 
-const beginingState = {
+const initialState = {
   one: {
     id: 'one',
     title: 'React',
@@ -45,4 +45,4 @@ const beginingState = {
   },
 };
 
-export default beginingState;
+export default initialState;

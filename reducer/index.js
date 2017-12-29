@@ -1,6 +1,6 @@
-import beginingState from '../utils/beginingState';
+import initialState from '../utils/initialState';
 
-export default function decks(state = beginingState, action) {
+export default function decks(state = initialState, action) {
   switch (action.type) {
     case 'ADD_DECK':
       return Object.assign({}, state, { [action.deck.id]: action.deck });
